@@ -1,120 +1,191 @@
 "use client";
 
-import React from "react";
-import {
-    FaJs,
-    FaPython,
-    FaHtml5,
-    FaCss3Alt,
-    FaReact,
-    FaNodeJs,
-    FaGitAlt,
-    FaGithub,
-    FaUnity,
-    FaSass,
-    FaCode,
-} from "react-icons/fa";
-import {
-    SiTailwindcss,
-    SiBootstrap,
-    SiDjango,
-    SiPostman,
-    SiFigma,
-    SiNextdotjs,
-    SiMysql,
-} from "react-icons/si";
-import { VscVscode } from "react-icons/vsc";
-import { BsDatabase, BsGlobe2 } from "react-icons/bs";
-
-const skillCategories = [
-    {
-        title: "🖥️ Languages",
-        description: "Programming languages you know",
-        skills: [
-            { name: "JavaScript", icon: <FaJs /> },
-            { name: "Python", icon: <FaPython /> },
-            { name: "C#", icon: <FaCode /> }, // Using generic code icon for C#
-            { name: "HTML", icon: <FaHtml5 /> },
-            { name: "CSS", icon: <FaCss3Alt /> },
-            { name: "SQL", icon: <SiMysql /> },
-        ],
-    },
-    {
-        title: "🧰 Frameworks & Libraries",
-        description: "Libraries and frameworks you've used",
-        skills: [
-            { name: "React", icon: <FaReact /> },
-            { name: "Next.js", icon: <SiNextdotjs /> },
-            { name: "React Native", icon: <FaReact /> },
-            { name: "Django", icon: <SiDjango /> },
-            { name: "Node.js", icon: <FaNodeJs /> },
-            { name: "Bootstrap", icon: <SiBootstrap /> },
-            { name: "Tailwind CSS", icon: <SiTailwindcss /> },
-            { name: "Sass", icon: <FaSass /> },
-        ],
-    },
-    {
-        title: "🔧 Tools & Software",
-        description: "Supporting tools",
-        skills: [
-            { name: "Git", icon: <FaGitAlt /> },
-            { name: "GitHub", icon: <FaGithub /> },
-            { name: "VS Code", icon: <VscVscode /> },
-            { name: "Postman", icon: <SiPostman /> },
-            { name: "Unity", icon: <FaUnity /> },
-            { name: "Figma", icon: <SiFigma /> },
-        ],
-    },
-    {
-        title: "🔌 Other Technologies",
-        description: "Broader tech concepts & systems",
-        skills: [
-            { name: "REST APIs", icon: <BsGlobe2 /> },
-            { name: "Database Management", icon: <BsDatabase /> },
-            { name: "Full-Stack Development", icon: <FaNodeJs /> },
-        ],
-    },
-];
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { GetIcon } from "@/utils/GetIcon";
+import { skillsConfig, skillTypesConfig } from "../../axiosConfig";
 
 const Skills = () => {
-    return (
-        <section className="py-20 px-4 sm:px-6 lg:px-16 bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300" id="skills">
-            <div className="max-w-6xl mx-auto">
-                <h2 className="text-4xl font-bold mb-4 text-center text-gray-800 dark:text-white">
-                    🛠 My <span className="text-blue-500">Skills</span>
-                </h2>
-                <div className="w-20 h-1 bg-blue-500 mx-auto mb-16"></div>
+    const [skills, setSkills] = useState([]);
+    const [types, setTypes] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-                <div className="space-y-12">
-                    {skillCategories.map((category, index) => (
-                        <div
-                            key={index}
-                            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg"
-                        >
-                            <h3 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-gray-200">
-                                {category.title}
-                            </h3>
-                            <p className="mb-6 text-gray-700 dark:text-gray-300">
-                                {category.description}
-                            </p>
-                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                                {category.skills.map((skill, idx) => (
-                                    <div
-                                        key={idx}
-                                        className="flex flex-col items-center justify-center gap-2 p-4 rounded-xl shadow-md bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white transition-all hover:scale-105 border border-blue-100 dark:border-blue-900"
-                                    >
-                                        <div className="text-3xl text-blue-500">
-                                            {skill.icon}
-                                        </div>
-                                        <p className="text-sm font-medium">
-                                            {skill.name}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
+    useEffect(() => {
+        Promise.all([
+            skillsConfig.get(
+                ""
+            ),
+            skillTypesConfig.get(""),
+        ])
+            .then(([skillsRes, typesRes]) => {
+                setSkills(skillsRes.data.data);
+                setTypes(typesRes.data.data);
+                console.log("Skills: ", skills);
+                console.log("Skill types: ", types);
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                console.error("Error fetching data:", err);
+            });
+    }, []);
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2,
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+            },
+        },
+    };
+
+    const cardHoverVariants = {
+        hover: {
+            y: -5,
+            boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.3)",
+            transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 10,
+            },
+        },
+    };
+
+    const renderSkillCards = (filterSkills) => {
+        if (isLoading) {
+            return Array(3)
+                .fill()
+                .map((_, index) => (
+                    <motion.div
+                        key={`skeleton-${index}`}
+                        className="h-24 rounded-xl bg-gray-200 dark:bg-gray-700 animate-pulse"
+                        variants={itemVariants}
+                    />
+                ));
+        }
+
+        return filterSkills.map((skill) => {
+            const Icon = GetIcon(skill.icon);
+            return (
+                <motion.div
+                    key={skill.id}
+                    className="flex flex-col items-center justify-center gap-2 p-4 rounded-xl shadow-md bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white border border-blue-100 dark:border-blue-900"
+                    variants={itemVariants}
+                    whileHover="hover"
+                    variants={cardHoverVariants}
+                >
+                    <motion.div
+                        className="text-3xl text-blue-500"
+                        whileHover={{ scale: 1.2 }}
+                    >
+                        <Icon />
+                    </motion.div>
+                    <p className="text-sm font-medium">{skill.title}</p>
+                </motion.div>
+            );
+        });
+    };
+
+    const renderSkillsSection = () => {
+        if (isLoading) {
+            return Array(4)
+                .fill()
+                .map((_, index) => (
+                    <motion.div
+                        key={`section-skeleton-${index}`}
+                        className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                    >
+                        <div className="h-8 w-1/3 mb-4 rounded bg-gray-200 dark:bg-gray-700 animate-pulse"></div>
+
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                            {renderSkillCards([])}
                         </div>
-                    ))}
-                </div>
+                    </motion.div>
+                ));
+        }
+
+        return types.map((type) => {
+            const filteredSkills = skills.filter(
+                (skill) => skill.type == type.id
+            );
+            return (
+                <motion.div
+                    key={type.id}
+                    className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <h3 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-gray-200">
+                        {type.title}
+                    </h3>
+                    <p className="mb-6 text-gray-700 dark:text-gray-300">
+                        {type.description}
+                    </p>
+                    <motion.div
+                        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
+                        {renderSkillCards(filteredSkills)}
+                    </motion.div>
+                </motion.div>
+            );
+        });
+    };
+
+    return (
+        <section
+            className="py-20 px-4 sm:px-6 lg:px-16 bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300"
+            id="skills"
+        >
+            <div className="max-w-6xl mx-auto">
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center"
+                >
+                    <h2 className="text-4xl font-bold mb-4 text-gray-800 dark:text-white">
+                        🛠 My <span className="text-blue-500">Skills</span>
+                    </h2>
+                    <motion.div
+                        className="w-20 h-1 bg-blue-500 mx-auto mb-16"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "5rem" }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                    />
+                </motion.div>
+
+                <motion.div
+                    className="space-y-12"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    {renderSkillsSection()}
+                </motion.div>
             </div>
         </section>
     );

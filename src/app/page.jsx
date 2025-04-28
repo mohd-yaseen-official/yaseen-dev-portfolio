@@ -1,11 +1,11 @@
 "use client";
 
-import AboutMe from "@/components/AboutMe";
-import Contact from "@/components/Contact";
-import FeaturedClones from "@/components/FeaturedClones";
 import Hero from "@/components/Hero";
-import FeaturedProjects from "@/components/FeaturedProjects";
+import AboutMe from "@/components/AboutMe";
 import Skills from "@/components/Skills";
+import FeaturedProjects from "@/components/FeaturedProjects";
+import FeaturedClones from "@/components/FeaturedClones";
+import Contact from "@/components/Contact";
 
 const Home = () => {
     return (

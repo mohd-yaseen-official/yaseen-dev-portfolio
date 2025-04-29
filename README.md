@@ -57,7 +57,14 @@ Feel free to connect with me via:
 ---
 ## 📄 License
 
-This project is licensed under the [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/).
+This project is licensed under a **Custom License**. You are free to:
+- View and use the code for personal, educational, or non-commercial purposes.
+
+You may **not**:
+- Modify, distribute, or contribute to this repository.
+- Use this repository for commercial purposes.
+
+All rights reserved by Mohamed Yaseen.
 
 ---
 ## 🏅 Credits

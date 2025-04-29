@@ -44,3 +44,5 @@ next-env.d.ts
 #other
 **.txt
 generateSafelist.js
+.vscode/
+**.rar

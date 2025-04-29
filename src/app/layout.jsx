@@ -6,21 +6,22 @@ import Footer from "@/components/includes/Footer";
 const geistSans = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"],
-    display: 'swap',
+    display: "swap",
 });
 
 const geistMono = Geist_Mono({
     variable: "--font-geist-mono",
     subsets: ["latin"],
-    display: 'swap',
+    display: "swap",
 });
 
 export const metadata = {
     title: {
         default: "Mohamed Yaseen | Full Stack & Game Developer",
-        template: "%s | Mohamed Yaseen"
+        template: "%s | Mohamed Yaseen",
     },
-    description: "Professional portfolio of Mohamed Yaseen V M - Certified Full Stack Developer and Unity Game Developer creating modern web applications and interactive experiences.",
+    description:
+        "Professional portfolio of Mohamed Yaseen V M - Certified Full Stack Developer and Unity Game Developer creating modern web applications and interactive experiences.",
     keywords: [
         "Full Stack Developer",
         "Game Developer",
@@ -31,16 +32,19 @@ export const metadata = {
         "Portfolio",
         "Mohamed Yaseen",
         "JavaScript Developer",
-        "Node.js Developer"
+        "Django Developer",
     ],
-    authors: [{ 
-        name: "Mohamed Yaseen V M", 
-        url: "https://mohamed-yaseen.info" 
-    }],
-    metadataBase: new URL('https://mohamed-yaseen.info'),
+    authors: [
+        {
+            name: "Mohamed Yaseen V M",
+            url: "https://mohamed-yaseen.info",
+        },
+    ],
+    metadataBase: new URL("https://mohamed-yaseen.info"),
     openGraph: {
         title: "Mohamed Yaseen | Full Stack & Game Developer",
-        description: "Professional portfolio of Mohamed Yaseen V M - Certified Full Stack Developer and Unity Game Developer",
+        description:
+            "Professional portfolio of Mohamed Yaseen V M - Certified Full Stack Developer and Unity Game Developer",
         url: "https://mohamed-yaseen.info",
         siteName: "Mohamed Yaseen Portfolio",
         images: [
@@ -72,22 +76,26 @@ export const metadata = {
             { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
         ],
         apple: [
-            { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+            {
+                url: "/apple-touch-icon.png",
+                sizes: "180x180",
+                type: "image/png",
+            },
         ],
         other: [
             {
                 rel: "icon",
                 url: "/android-chrome-192x192.png",
                 sizes: "192x192",
-                type: "image/png"
+                type: "image/png",
             },
             {
                 rel: "icon",
                 url: "/android-chrome-512x512.png",
                 sizes: "512x512",
-                type: "image/png"
+                type: "image/png",
             },
-        ]
+        ],
     },
     manifest: "/site.webmanifest",
     themeColor: [
@@ -100,21 +108,21 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" suppressHydrationWarning className="scroll-smooth">
             <head>
-                
                 {/* Structured Data */}
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Person",
-                        "name": "Mohamed Yaseen V M",
-                        "url": "https://mohamed-yaseen.info",
-                        "sameAs": [
+                        name: "Mohamed Yaseen V M",
+                        url: "https://mohamed-yaseen.info",
+                        sameAs: [
                             "https://github.com/mohd-yaseen-official",
-                            "https://www.instagram.com/_mxd__yaseen_"
+                            "https://www.instagram.com/_mxd__yaseen_",
                         ],
-                        "jobTitle": "Full Stack & Game Developer",
-                        "description": "Certified Full Stack Developer and Unity Game Developer creating modern web applications and interactive experiences.",
-                        "knowsAbout": [
+                        jobTitle: "Full Stack & Game Developer",
+                        description:
+                            "Certified Full Stack Developer and Unity Game Developer creating modern web applications and interactive experiences.",
+                        knowsAbout: [
                             "React",
                             "Next.js",
                             "JavaScript",
@@ -122,8 +130,65 @@ export default function RootLayout({ children }) {
                             "Node.js",
                             "Unity",
                             "Game Development",
-                            "Web Development"
-                        ]
+                            "Web Development",
+                        ],
+                        hasCredential: [
+                            {
+                                "@type": "EducationalOccupationalCredential",
+                                name: "UI Engineer Certification",
+                                url: "https://steyp.com/certification/r3sll77j5jbfhibn8lky/",
+                                issuer: {
+                                    "@type": "Organization",
+                                    name: "Steyp",
+                                    url: "https://steyp.com/",
+                                },
+                                dateIssued: "2024-05-24",
+                            },
+                            {
+                                "@type": "EducationalOccupationalCredential",
+                                name: "Backend Developer Certification",
+                                url: "https://steyp.com/certification/stublusekpi7sbj135m1/",
+                                issuer: {
+                                    "@type": "Organization",
+                                    name: "Steyp",
+                                    url: "https://steyp.com",
+                                },
+                                dateIssued: "2024-07-03",
+                            },
+                            {
+                                "@type": "EducationalOccupationalCredential",
+                                name: "DevOps Engineer Certification",
+                                url: "https://steyp.com/certification/al5ylczxnricx8rzx9wa/",
+                                issuer: {
+                                    "@type": "Organization",
+                                    name: "Steyp",
+                                    url: "https://steyp.com",
+                                },
+                                dateIssued: "2024-07-28",
+                            },
+                            {
+                                "@type": "EducationalOccupationalCredential",
+                                name: "Web Application Developer Certification",
+                                url: "https://steyp.com/certification/54ld5ghl7968dg9z4lid/",
+                                issuer: {
+                                    "@type": "Organization",
+                                    name: "Steyp",
+                                    url: "https://steyp.com",
+                                },
+                                dateIssued: "2024-08-05",
+                            },
+                            {
+                                "@type": "EducationalOccupationalCredential",
+                                name: "Mobile Application Developer Certfication",
+                                url: "https://steyp.com/certification/t0bmr4dbuu3mz2jfp88b/",
+                                issuer: {
+                                    "@type": "Organization",
+                                    name: "Steyp",
+                                    url: "https://steyp.com",
+                                },
+                                dateIssued: "2024-12-28",
+                            },
+                        ],
                     })}
                 </script>
             </head>

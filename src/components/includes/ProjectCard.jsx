@@ -30,7 +30,7 @@ const ProjectCard = ({ project }) => {
                     transition={{ duration: 0.3 }}
                 >
                     <Image
-                        src={`http://localhost:8000${project.image}`}
+                        src={project.image}
                         alt={`Screenshot of ${project.title} project`}
                         width={400}
                         height={250}

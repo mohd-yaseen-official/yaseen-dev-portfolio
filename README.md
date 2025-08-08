@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 👨‍💻 Yaseen.Dev - Portfolio Website
 
-## Getting Started
+**Yaseen.Dev** is a modern, responsive portfolio website showcasing my journey and work as a **Full Stack Developer** and **Game Developer**. Built with **Next.js**, **Tailwind CSS**, and **Framer Motion**, it’s optimized for performance, accessibility, and design.
 
-First, run the development server:
+🌐 [Visit Website](https://mohamed-yaseen.info)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- 🚀 **Hero Section**: Animated introduction with typing effects to highlight roles and skills
+- 🙋 **About Me**: Summary of who I am, what I do, and my goals
+- 📈 **My Journey**: Visual timeline of major milestones in my learning and development path
+- 🛠️ **Featured Projects**:
+  - Project cover image
+  - Short description
+  - Link to GitHub repository
+- 🧪 **Featured Clones**:
+  - Covers of recreated apps or websites
+  - Descriptions of features
+  - GitHub links for source code
+- 📬 **Contact Section**:
+  - Functional contact form (email integration)
+  - Links to social platforms (LinkedIn, GitHub, Twitter, etc.)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+| Layer        | Technologies Used                            |
+|--------------|-----------------------------------------------|
+| Frontend     | Next.js 15 (App Router), React 19             |
+| Styling      | Tailwind CSS, Framer Motion, React Icons      |
+| Animation    | Typed.js, Framer Motion                       |
+| Backend API  | Django REST Framework (in separate [repo](https://github.com/mohd-yaseen-official/yaseen-dev-portfolio-api.git))      |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ⚙️ Additional Features
 
-## Deploy on Vercel
+- 💡 **Dark/Light Mode**: Auto-detects system preference
+- 📱 **Fully Responsive**: Mobile, tablet, and desktop compatible
+- 🔍 **SEO Optimized**: Meta tags, OpenGraph, and Schema.org
+- ⚡ **High Performance**: Scores 95+ in Lighthouse audits
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📬 Contact Me
+
+Feel free to connect with me via:
+
+- 💼 GitHub: [mohd-yaseen-official](https://github.com/mohd-yaseen-official)
+- 📷 Instagram: [_mxd__yaseen_](https://www.instagram.com/_mxd__yaseen_/)
+- 📧 Email: [yaseenichu21@gmail.com](mailto:yaseenichu21@gmail.com)
+- 🌐 Website: [mohamed-yaseen.info](https://mohamed-yaseen.info)
+
+---
+## 📄 License
+
+This project is licensed under a **Custom License**. You are free to:
+- View and use the code for personal, educational, or non-commercial purposes.
+
+You may **not**:
+- Modify, distribute, or contribute to this repository.
+- Use this repository for commercial purposes.
+
+All rights reserved by Mohamed Yaseen.
+
+---
+## 🏅 Credits
+
+Developed with 💙 by Mohamed Yaseen.
+
+© 2025 Mohamed Yaseen — All rights reserved.

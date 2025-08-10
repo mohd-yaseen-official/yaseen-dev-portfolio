@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "mohamed-yaseen.info",
+                hostname: "mohamedyaseen.developer.li",
                 pathname: "/media/**",
             },
         ],
